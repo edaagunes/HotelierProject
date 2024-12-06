@@ -30,7 +30,7 @@ namespace HotelProject.WebApi.Controllers
 			return Ok("Ekleme Başarılı");
 		}
 
-		[HttpDelete]
+		[HttpDelete("{id}")]
 		public IActionResult DeleteStaff(int id)
 		{
 			var values=_staffService.TGetById(id);

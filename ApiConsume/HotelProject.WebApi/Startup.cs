@@ -47,6 +47,17 @@ namespace HotelProject.WebApi
 			services.AddScoped<IRoomDal, EfRoomDal>();
 			services.AddScoped<IRoomService, RoomManager>();
 
+            //Consume edilecek alanlarý tanýmladýk
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy("OtelApiCors", opts =>
+                {
+                    opts.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+                });
+            });
+
 
 			services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -66,6 +77,9 @@ namespace HotelProject.WebApi
             }
 
             app.UseRouting();
+
+            //Tanýmlandý
+            app.UseCors("OtelApiCors");
 
             app.UseAuthorization();
 
