@@ -1,3 +1,5 @@
+using HotelProject.DataAccessLayer.Concrete;
+using HotelProject.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -22,9 +24,14 @@ namespace HotelProject.WebUI
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+			// Identity
+			services.AddDbContext<Context>();
+			services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<Context>();
+
 			services.AddAutoMapper(typeof(Startup));
 			services.AddHttpClient();
 			services.AddControllersWithViews();
+			services.AddRazorPages();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
