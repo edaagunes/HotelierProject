@@ -47,7 +47,10 @@ namespace HotelProject.WebApi
 			services.AddScoped<IRoomDal, EfRoomDal>();
 			services.AddScoped<IRoomService, RoomManager>();
 
-            services.AddAutoMapper(typeof(Startup));
+			services.AddScoped<IAboutDal, EfAboutDal>();
+			services.AddScoped<IAboutService, AboutManager>();
+
+			services.AddAutoMapper(typeof(Startup));
 
             //Consume edilecek alanlarý tanýmladýk
             services.AddCors(opt =>
