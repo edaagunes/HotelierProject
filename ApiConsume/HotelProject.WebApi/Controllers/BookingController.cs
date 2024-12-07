@@ -38,7 +38,7 @@ namespace HotelProject.WebApi.Controllers
 			return Ok("Silme Başarılı");
 		}
 
-		[HttpPut]
+		[HttpPut("UpdateBooking")]
 		public IActionResult UpdateBooking(Booking booking)
 		{
 			_bookingService.TUpdate(booking);
@@ -50,6 +50,14 @@ namespace HotelProject.WebApi.Controllers
 		{
 			var values = _bookingService.TGetById(id);
 			return Ok(values);
+		}
+
+		// Entity e özgü yazılan metodu ekliyoruz
+		[HttpPut("BookingReservationApprover")]
+		public IActionResult BookingReservationApprover(Booking booking)
+		{
+			_bookingService.TBookingStatusChangeApproved(booking);
+			return Ok();
 		}
 	}
 }
