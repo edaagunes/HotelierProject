@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35506.116 d17.12
+VisualStudioVersion = 17.12.35506.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiConsume", "ApiConsume", "{B3B05C0E-8055-405C-A632-BE5564A182C7}"
 EndProject
@@ -18,6 +18,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{11336251-DB03-4262-9CD9-21277240E401}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelProject.WebUI", "Frontend\HotelProject.WebUI\HotelProject.WebUI.csproj", "{59C192EE-5BB2-4F11-9EE4-AEDBDCDD02F8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RapidApi", "RapidApi", "{EB30E08F-BDB2-4FE2-BECD-61ABA38E214E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RapidApiConsume", "RapidApi\RapidApiConsume\RapidApiConsume.csproj", "{9B2C89C1-FB8B-41BE-9172-74440C1AF0F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +53,10 @@ Global
 		{59C192EE-5BB2-4F11-9EE4-AEDBDCDD02F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59C192EE-5BB2-4F11-9EE4-AEDBDCDD02F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59C192EE-5BB2-4F11-9EE4-AEDBDCDD02F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B2C89C1-FB8B-41BE-9172-74440C1AF0F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B2C89C1-FB8B-41BE-9172-74440C1AF0F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B2C89C1-FB8B-41BE-9172-74440C1AF0F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B2C89C1-FB8B-41BE-9172-74440C1AF0F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,5 +68,6 @@ Global
 		{B5FA952A-60EB-46D2-9A83-D1F5B180A2DD} = {B3B05C0E-8055-405C-A632-BE5564A182C7}
 		{36320483-BA50-4FC2-ABB8-B45D538BF5FF} = {B3B05C0E-8055-405C-A632-BE5564A182C7}
 		{59C192EE-5BB2-4F11-9EE4-AEDBDCDD02F8} = {11336251-DB03-4262-9CD9-21277240E401}
+		{9B2C89C1-FB8B-41BE-9172-74440C1AF0F1} = {EB30E08F-BDB2-4FE2-BECD-61ABA38E214E}
 	EndGlobalSection
 EndGlobal
