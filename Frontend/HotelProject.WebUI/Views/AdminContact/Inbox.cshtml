@@ -1,0 +1,63 @@
+﻿@model List<InboxContactDto>
+@{
+	ViewData["Title"] = "Inbox";
+	Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div class="email-left-box">
+	<a href="/AdminContact/AddSendMessage" class="btn btn-primary btn-block">Yeni Mesaj</a>
+
+	@await Html.PartialAsync("SideBarAdminContactPartial.cshtml")
+
+	@await Html.PartialAsync("SideBarAdminContactCategoryPartial.cshtml")
+	
+</div>
+
+<div class="email-right-box">
+	<div role="toolbar" class="toolbar">
+		<div class="btn-group">
+			<button aria-expanded="false" data-toggle="dropdown" class="btn btn-dark" type="button">
+				Gelen Mesajlar <span class="caret m-l-5"></span>
+			</button>
+			
+		</div>
+	</div>
+	<div class="email-list m-t-15">
+		@foreach (var item in Model)
+		{
+			var timeDifference = DateTime.Now - item.Date;
+			string displayTime;
+
+			if (timeDifference.TotalDays < 1)
+			{
+				// Bir günden az ise saati göster
+				displayTime = item.Date.ToString("hh:mm tt");
+			}
+
+			else
+			{
+				// Bir günden fazla ise kaç gün önce olduğunu göster
+				displayTime = $"{(int)timeDifference.TotalDays} gün önce";
+			}
+
+			<div class="message">
+				<a href="/AdminContact/MessageDetailsByInbox/@item.ContactId">
+					<div class="col-mail col-mail-1 text-truncate">
+						<div class="email-checkbox">
+							<input type="checkbox" id="chk2">
+							<label class="toggle" for="chk2"></label>
+						</div><span class="star-toggle ti-star"></span>
+					</div>
+					<div class="col-mail col-mail-2 text-truncate">
+						<div class="subject">@(item.Message.Length > 20 ? item.Message.Substring(0, 20) : item.Message)...</div>
+						<div class="date">@displayTime</div>
+					</div>
+				</a>
+			</div>
+		}
+			
+	</div>
+
+</div>
+
+

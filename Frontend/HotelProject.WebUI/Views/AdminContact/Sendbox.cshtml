@@ -1,0 +1,64 @@
+﻿@model List<ResultSendBoxDto>
+@{
+    ViewData["Title"] = "Sendbox";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div class="email-left-box">
+	<a href="/AdminContact/AddSendMessage" class="btn btn-primary btn-block">Yeni Mesaj</a>
+
+	@await Html.PartialAsync("SideBarAdminContactPartial.cshtml")
+
+	@await Html.PartialAsync("SideBarAdminContactCategoryPartial.cshtml")
+
+</div>
+
+<div class="email-right-box">
+	<div role="toolbar" class="toolbar">
+		<div class="btn-group">
+			<button aria-expanded="false" data-toggle="dropdown" class="btn btn-dark" type="button">
+				Gönderilen Mesajlar <span class="caret m-l-5"></span>
+			</button>
+
+		</div>
+	</div>
+	<div class="email-list m-t-15">
+		@foreach (var item in Model)
+		{
+			var timeDifference = DateTime.Now - item.Date;
+			string displayTime;
+
+			if (timeDifference.TotalDays < 1)
+			{
+				// Bir günden az ise saati göster
+				displayTime = item.Date.ToString("hh:mm tt");
+			}
+
+			else
+			{
+				// Bir günden fazla ise kaç gün önce olduğunu göster
+				displayTime = $"{(int)timeDifference.TotalDays} gün önce";
+			}
+
+			<div class="message">
+				<a href="/AdminContact/MessageDetailsSendbox/@item.SendMessageId">
+					<div class="col-mail col-mail-2 text-truncate">
+						<div class="subject"><b>Konu:</b>  @item.Title</div>
+						
+					</div>
+					<div class="col-mail col-mail-2 text-truncate">
+						<div class="subject" style="margin-left: 150px"><b>Alıcı: </b>@item.ReceiverName </div>
+						<div class="subject" style="margin-left: 350px">@(item.Content.Length > 10 ? item.Content.Substring(0, 10) : item.Content)...</div>
+						<div class="date">@displayTime</div>
+					</div>
+				</a>
+			</div>
+		}
+
+	</div>
+
+</div>
+
+
+
+
