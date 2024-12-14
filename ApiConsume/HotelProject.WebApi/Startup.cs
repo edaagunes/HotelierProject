@@ -98,9 +98,12 @@ namespace HotelProject.WebApi
             //Tanýmlandý
             app.UseCors("OtelApiCors");
 
-            app.UseAuthorization();
+			app.UseStaticFiles();
+			app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
+			app.UseAuthorization();
+
+			app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
