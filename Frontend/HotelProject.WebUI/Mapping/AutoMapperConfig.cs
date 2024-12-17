@@ -38,6 +38,8 @@ namespace HotelProject.WebUI.Mapping
 
 			CreateMap<ResultAppUserDto,AppUser>().ReverseMap();
 			CreateMap<ResultAppUserListDto,AppUser>().ReverseMap();
+
+			CreateMap<AppUser, ResultAppUserWithWorkLocationDto>().ForMember(dest => dest.WorkLocationName, opt => opt.MapFrom(src => src.WorkLocation.Name)).ReverseMap();
 		}
 	}
 }
