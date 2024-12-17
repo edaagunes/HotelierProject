@@ -1,0 +1,62 @@
+﻿@model List<ResultLast4BookingsDto>
+
+<div class="row">
+	<div class="col-lg-12">
+		<div class="card">
+			<div class="card-body">
+				<div class="active-member">
+					<div class="table-responsive">
+						<table class="table table-xs mb-0">
+							<thead>
+								<tr>
+									<th>Misafir</th>
+									<th>Şehir</th>
+									<th>Ülke</th>
+									<th>Durum</th>
+									<th>Giriş Tarihi</th>
+									<th>Çıkış Tarihi</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var item in Model)
+								{
+									<tr>
+										<td>@item.Name</td>
+										<td>@item.City</td>
+										<td>
+											<span>@item.Country</span>
+										</td>
+										@if (item.Status=="Onaylandı")
+										{											
+											<td><i class="fa fa-circle-o text-success  mr-2"></i> @item.Status</td>
+										}
+
+										@if (item.Status == "Müşteri Aranacak")
+										{
+											<td><i class="fa fa-circle-o text-warning  mr-2"></i> @item.Status</td>
+										}
+
+										@if (item.Status == "İptal Edildi")
+										{
+											<td><i class="fa fa-circle-o text-danger  mr-2"></i> @item.Status</td>
+										}
+
+										@if (item.Status == "Onay Bekliyor")
+										{											
+											<td><i class="fa fa-circle-o text-info mr-2"></i> @item.Status</td>
+										}
+
+										<td>@item.CheckIn.ToString("dd-MMM-yyyy")</td>
+										<td>@item.CheckOut.ToString("dd-MMM-yyyy")</td>
+										
+									</tr>
+								}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

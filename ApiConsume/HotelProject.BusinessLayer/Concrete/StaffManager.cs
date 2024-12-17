@@ -18,6 +18,11 @@ namespace HotelProject.BusinessLayer.Concrete
 			_staffDal = staffDal;
 		}
 
+		public List<Staff> TLast4Staff()
+		{
+			return _staffDal.Last4Staff();
+		}
+
 		public void TDelete(Staff entity)
 		{
 			_staffDal.Delete(entity);
@@ -31,6 +36,11 @@ namespace HotelProject.BusinessLayer.Concrete
 		public Staff TGetById(int id)
 		{
 			return	_staffDal.GetById(id);
+		}
+
+		public int TGetStaffCount()
+		{
+			return _staffDal.GetStaffCount();
 		}
 
 		public void TInsert(Staff entity)

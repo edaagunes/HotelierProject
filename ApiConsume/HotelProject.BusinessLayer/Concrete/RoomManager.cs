@@ -38,6 +38,11 @@ namespace HotelProject.BusinessLayer.Concrete
 			_roomDal.Insert(entity);
 		}
 
+		public int TRoomCount()
+		{
+			return _roomDal.RoomCount();
+		}
+
 		public void TUpdate(Room entity)
 		{
 			_roomDal.Update(entity);
