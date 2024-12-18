@@ -7,8 +7,7 @@
 <table class="table table-bordered">
     <tr>
         <th>#</th>
-        <th>Referans Görsel</th>
-        <th>Referans Adı</th>
+        <th>Referans</th>
         <th>Referans Unvanı</th>
         <th>İşlemler</th>
 
@@ -17,8 +16,7 @@
     {
         <tr>
             <th>@item.TestimonialId</th>
-            <td>@item.Image</td>
-            <td>@item.Name</td>
+            <td><img src="@item.Image" class="rounded-circle mr-3" style="width:50px;height:50px" />@item.Name</td>
             <td>@item.Title</td>
             <td><a href="/Testimonial/DeleteTestimonial/@item.TestimonialId" class="btn mb-1 btn-rounded btn-outline-danger">Sil</a></td>
             <td><a href="/Testimonial/UpdateTestimonial/@item.TestimonialId" class="btn mb-1 btn-rounded btn-outline-success">Güncelle</a></td>

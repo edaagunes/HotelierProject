@@ -48,7 +48,7 @@
 					</div>
 					<div class="col-mail col-mail-2 text-truncate">
 						<div class="subject" style="margin-left: 150px"><b>Alıcı: </b>@item.ReceiverName </div>
-						<div class="subject" style="margin-left: 350px">@(item.Content.Length > 10 ? item.Content.Substring(0, 10) : item.Content)...</div>
+						<div class="subject" style="margin-left: 350px">@(item.Content.Length > 10 ? item.Content.Substring(0, 60) : item.Content)...</div>
 						<div class="date">@displayTime</div>
 					</div>
 				</a>

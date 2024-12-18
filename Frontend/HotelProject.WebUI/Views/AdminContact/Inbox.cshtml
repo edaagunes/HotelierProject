@@ -49,7 +49,7 @@
 						</div><span class="star-toggle ti-star"></span>
 					</div>
 					<div class="col-mail col-mail-2 text-truncate">
-						<div class="subject">@(item.Message.Length > 20 ? item.Message.Substring(0, 20) : item.Message)...</div>
+						<div class="subject">@(item.Message.Length > 20 ? item.Message.Substring(0, 80) : item.Message)...</div>
 						<div class="date">@displayTime</div>
 					</div>
 				</a>
