@@ -77,7 +77,6 @@ namespace HotelProject.WebUI.Controllers
 		[HttpGet]
 		public async Task<IActionResult> UpdateGuest(int id)
 		{
-
 			var client = _httpClientFactory.CreateClient();
 			var responseMessage = await client.GetAsync($"http://localhost:5000/api/Guest/{id}");
 			if (responseMessage.IsSuccessStatusCode)

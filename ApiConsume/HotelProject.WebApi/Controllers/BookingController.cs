@@ -52,11 +52,22 @@ namespace HotelProject.WebApi.Controllers
 			return Ok(values);
 		}
 
-		// Entity e özgü yazılan metodu ekliyoruz
-		[HttpPut("BookingReservationApprover")]
-		public IActionResult BookingReservationApprover(Booking booking)
+		[HttpGet("BookingReservationApprover")]
+		public IActionResult BookingReservationApprover(int id)
 		{
-			_bookingService.TBookingStatusChangeApproved(booking);
+			_bookingService.TBookingStatusChangeApproved(id);
+			return Ok();
+		}
+		[HttpGet("BookingReservationCancel")]
+		public IActionResult BookingReservationCancel(int id)
+		{
+			_bookingService.TBookingStatusChangeCancel(id);
+			return Ok();
+		}
+		[HttpGet("BookingReservationWait")]
+		public IActionResult BookingReservationWait(int id)
+		{
+			_bookingService.TBookingStatusChangeWait(id);
 			return Ok();
 		}
 

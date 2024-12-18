@@ -23,9 +23,9 @@ namespace HotelProject.BusinessLayer.Concrete
 			return _bookingDal.GetBookingCount();
 		}
 
-		public void TBookingStatusChangeApproved(Booking booking)
+		public void TBookingStatusChangeApproved(int id)
 		{
-			_bookingDal.BookingStatusChangeApproved(booking);
+			_bookingDal.BookingStatusChangeApproved(id);
 		}
 
 		public void TDelete(Booking entity)
@@ -56,6 +56,16 @@ namespace HotelProject.BusinessLayer.Concrete
 		public List<Booking> TLast4Bookings()
 		{
 			return _bookingDal.Last4Bookings();
+		}
+
+		public void TBookingStatusChangeCancel(int id)
+		{
+			_bookingDal.BookingStatusChangeCancel(id);
+		}
+
+		public void TBookingStatusChangeWait(int id)
+		{
+			_bookingDal.BookingStatusChangeWait(id);
 		}
 	}
 }

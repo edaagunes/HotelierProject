@@ -1,0 +1,47 @@
+﻿@model UpdateBookingDto
+@{
+    ViewData["Title"] = "UpdateBooking";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <input type="hidden" asp-for="BookingId" />
+    <label>Misafir Adı Soyadı</label>
+    <input type="text" class="form-control" asp-for="Name" />
+    <br />
+    <label>Misafir Mail Adresi</label>
+    <input type="email" class="form-control" asp-for="Mail" />
+    <br />
+    <label>Giriş Tarihi</label>
+    <input type="date" class="form-control" asp-for="CheckIn" />
+    <br />
+    <label>Çıkış Tarihi</label>
+    <input type="date" class="form-control" asp-for="CheckOut" />
+    <br />
+    <label>Yetişkin Sayısı</label>
+    <input type="text" class="form-control" asp-for="AdultCount" />
+    <br />
+    <label>Çocuk Sayısı</label>
+    <input type="text" class="form-control" asp-for="ChildCount" />
+    <br />
+    <label>Oda Sayısı</label>
+    <input type="text" class="form-control" asp-for="RoomCount" />
+    <br />
+    <label>Şehir</label>
+    <input type="text" class="form-control" asp-for="City" />
+    <br />
+    <label>Ülke</label>
+    <input type="text" class="form-control" asp-for="Country" />
+    <br />
+    <label>Durum</label>
+    <input type="text" class="form-control" asp-for="Status" />
+    <br />
+    <label>Özel İstekler</label>
+    <textarea type="text" class="form-control" rows="5" asp-for="SpecialRequest"></textarea>
+    <br />
+    <label>Açıklama</label>
+    <textarea type="text" class="form-control" rows="5" asp-for="Description"></textarea>
+    <br />
+    <button type="submit" class="btn btn-outline-primary">Güncelle</button>
+</form>
+

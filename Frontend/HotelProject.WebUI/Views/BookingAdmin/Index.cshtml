@@ -3,52 +3,54 @@
 	ViewData["Title"] = "Index";
 	Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
 	int count = 0;
+	var statusClass="";
 }
 
-<div class="col-lg-12">
-	<div class="card">
-		<div class="card-body">
-			<h4 class="card-title">Rezervasyonlar</h4>
-			<div class="table-responsive">
-				<table class="table table-bordered verticle-middle">
-					<thead>
-						<tr>
-							<th scope="col">#</th>
-							<th scope="col">Misafir</th>
-							<th scope="col">Giriş Tarihi</th>
-							<th scope="col">Çıkış Tarihi</th>
-							<th scope="col">Durum</th>
-							<th scope="col">İşlemler</th>
-							<th scope="col"></th>
-							<th scope="col"></th>
-							<th scope="col"></th>
-							<th scope="col"></th>
-						</tr>
-					</thead>
-					<tbody>
-						@foreach (var item in Model)
-						{
-							count++;
-							<tr>
-								<td>@count</td>
-								<td>@item.Name</td>
-								<td>@item.CheckIn.ToString("dd-MMM-yyyy")</td>
-								<td>@item.CheckOut.ToString("dd-MMM-yyyy")</td>
-								<td>
-									<span class="label gradient-1 btn-rounded">@item.Status</span>
-								</td>
-								<td><a href="/BookingAdmin/ApprovedReservation/@item.BookingId" class="btn cur-p btn-outline-success">Onayla</a></td>
-								<td><a href="#" class="btn cur-p btn-outline-danger">İptal Et</a></td>
-								<td><a href="#" class="btn cur-p btn-outline-warning">Beklet</a></td>
-								<td><a href="#" class="btn cur-p btn-outline-primary">Güncelle</a></td>
-								<td><a href="#" class="btn cur-p btn-outline-secondary">Detaylar</a></td>
-							</tr>
-						}
+<table class="table table-bordered verticle-middle">
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Misafir</th>
+			<th scope="col">Giriş Tarihi</th>
+			<th scope="col">Çıkış Tarihi</th>
+			<th scope="col">Durum</th>
+			<th scope="col">İşlemler</th>
+			<th scope="col"></th>
+			<th scope="col"></th>
+			<th scope="col"></th>
+			<th scope="col"></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{	
+			@if (item.Status == "Onay Bekliyor") { statusClass = "label gradient-1 btn-rounded"; }
+			@if (item.Status == "Onaylandı") { statusClass = "label gradient-9 btn-rounded"; }
+			@if (item.Status == "Müşteri Aranacak") { statusClass = "label gradient-3 btn-rounded"; }
+			@if (item.Status == "İptal Edildi") { statusClass = "label gradient-2 btn-rounded"; }
 
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
-</div>
+			count++;
+			<tr>
+				<td>@count</td>
+				<td>@item.Name</td>
+				<td>@item.CheckIn.ToString("dd-MMM-yyyy")</td>
+				<td>@item.CheckOut.ToString("dd-MMM-yyyy")</td>
+
+				<td>
+					<span class="@statusClass">@item.Status</span>
+				</td>
+				<td><a href="/BookingAdmin/ApprovedReservation/@item.BookingId" class="btn cur-p btn-outline-success">Onayla</a></td>
+				<td><a href="/BookingAdmin/CancelReservation/@item.BookingId" class="btn cur-p btn-outline-danger">İptal Et</a></td>
+				<td><a href="/BookingAdmin/WaitReservation/@item.BookingId" class="btn cur-p btn-outline-warning">Beklet</a></td>
+				<td><a href="/BookingAdmin/UpdateBooking/@item.BookingId" class="btn cur-p btn-outline-primary">Güncelle</a></td>
+				<td><a href="/BookingAdmin/UpdateBooking/@item.BookingId" class="btn cur-p btn-outline-secondary">Detaylar</a></td>
+			</tr>
+		}
+
+	</tbody>
+</table>
+
+
+
+
 
