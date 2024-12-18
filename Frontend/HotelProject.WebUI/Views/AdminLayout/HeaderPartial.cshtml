@@ -14,7 +14,7 @@
                 <input type="search" class="form-control" placeholder="Search Dashboard" aria-label="Search Dashboard">
                 <div class="drop-down   d-md-none">
                     <form action="#">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" class="form-control" placeholder="Ara...">
                     </form>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                                 </li>
                                 <li class="notification-unread">
                                     <a href="javascript:void()">
-                                        <img class="float-left mr-3 avatar-img" src="images/avatar/2.jpg" alt="">
+                                        <img class="float-left mr-3 avatar-img" src="~/adminweb/images/avatar/2.jpg" alt="">
                                         <div class="notification-content">
                                             <div class="notification-heading">Adam Smith</div>
                                             <div class="notification-timestamp">08 Hours ago</div>
@@ -55,7 +55,7 @@
                                 </li>
                                 <li>
                                     <a href="javascript:void()">
-                                        <img class="float-left mr-3 avatar-img" src="images/avatar/3.jpg" alt="">
+                                        <img class="float-left mr-3 avatar-img" src="~/adminweb/images/avatar/3.jpg" alt="">
                                         <div class="notification-content">
                                             <div class="notification-heading">Barak Obama</div>
                                             <div class="notification-timestamp">08 Hours ago</div>
@@ -65,7 +65,7 @@
                                 </li>
                                 <li>
                                     <a href="javascript:void()">
-                                        <img class="float-left mr-3 avatar-img" src="images/avatar/4.jpg" alt="">
+                                        <img class="float-left mr-3 avatar-img" src="~/adminweb/images/avatar/4.jpg" alt="">
                                         <div class="notification-content">
                                             <div class="notification-heading">Hilari Clinton</div>
                                             <div class="notification-timestamp">08 Hours ago</div>
@@ -131,7 +131,7 @@
                         </div>
                     </div>
                 </li>
-                <li class="icons dropdown d-none d-md-flex">
+               @*  <li class="icons dropdown d-none d-md-flex">
                     <a href="javascript:void(0)" class="log-user" data-toggle="dropdown">
                         <span>English</span>  <i class="fa fa-angle-down f-s-14" aria-hidden="true"></i>
                     </a>
@@ -143,7 +143,7 @@
                             </ul>
                         </div>
                     </div>
-                </li>
+                </li> *@
                 <li class="icons dropdown">
                     <div class="user-img c-pointer position-relative" data-toggle="dropdown">
                         <span class="activity active"></span>
@@ -153,17 +153,17 @@
                         <div class="dropdown-content-body">
                             <ul>
                                 <li>
-                                    <a href="app-profile.html"><i class="icon-user"></i> <span>Profile</span></a>
+                                    <a href="/Settings/Index"><i class="icon-user"></i> <span>Profile</span></a>
                                 </li>
                                 <li>
-                                    <a href="email-inbox.html"><i class="icon-envelope-open"></i> <span>Inbox</span> <div class="badge gradient-3 badge-pill badge-primary">3</div></a>
+                                    <a href="/AdminContact/Index"><i class="icon-envelope-open"></i> <span>Inbox</span> <div class="badge gradient-3 badge-pill badge-primary">3</div></a>
                                 </li>
 
                                 <hr class="my-2">
                                 <li>
-                                    <a href="page-lock.html"><i class="icon-lock"></i> <span>Lock Screen</span></a>
+                                    <a href="/Default/Inbox"><i class="icon-lock"></i> <span>Anasayfa</span></a>
                                 </li>
-                                <li><a href="page-login.html"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                <li><a href="/Login/Signout"><i class="icon-key"></i> <span>Çıkış Yap</span></a></li>
                             </ul>
                         </div>
                     </div>
